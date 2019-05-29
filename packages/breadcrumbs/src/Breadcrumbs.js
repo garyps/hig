@@ -8,9 +8,6 @@ const separator = "/";
 
 class Breadcrumbs extends Component {
   static propTypes = {
-    /**
-     * Content of the label, including the label text
-     */
     children: PropTypes.node
   };
 

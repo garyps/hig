@@ -1,5 +1,6 @@
 import React from "react";
 import TextLink from "@hig/text-link";
+import Typography from "@hig/typography";
 import { withInfo } from "@storybook/addon-info";
 import { storiesOf } from "@storybook/react";
 
@@ -21,8 +22,8 @@ storybook.add(
     return withThemeProvider(
       <Breadcrumbs {...otherProps}>
         <TextLink link="#">Home</TextLink>
-        <TextLink link="#">Level 1</TextLink>
-        <TextLink link="#">Level 2</TextLink>
+        <TextLink link="#">Parent</TextLink>
+        <Typography>Current</Typography>
       </Breadcrumbs>
     );
   })
