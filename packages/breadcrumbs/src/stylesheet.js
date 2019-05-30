@@ -19,7 +19,9 @@ export default function stylesheet(props, themeData) {
     separator: {
       margin: "0 8px",
       padding: 0,
-      cursor: "default"
+      cursor: "default",
+      color: themeData["typography.body.color"],
+      opacity: 0.5
     }
   };
 }

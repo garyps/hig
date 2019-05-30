@@ -18,6 +18,7 @@ class Breadcrumbs extends Component {
       <ThemeContext.Consumer>
         {({ resolvedRoles }) => {
           const styles = stylesheet({}, resolvedRoles);
+          window.console.log(styles);
           return (
             <ul style={styles.wrapper} {...otherProps}>
               {React.Children.toArray(children)

@@ -1,11 +1,7 @@
-# `breadcrumbs`
+# Breadcrumbs
 
-> TODO: description
+This is a sample package for contributing a HIG component.
 
-## Usage
+This component accepts Text-Link & Text as its child nodes, and displays them in a "breadcrumbs" style.
 
-```
-const breadcrumbs = require('breadcrumbs');
-
-// TODO: DEMONSTRATE API
-```
+This is a private package, will not be published as an offical HIG component.

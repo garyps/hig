@@ -3,8 +3,8 @@ import TextLink from "@hig/text-link";
 import Typography from "@hig/typography";
 import { withInfo } from "@storybook/addon-info";
 import { storiesOf } from "@storybook/react";
+import KnobbedThemeProvider from "@hig/storybook/storybook-support/decorators/KnobbedThemeProvider";
 
-import getKnobs from "./getKnobs";
 import Breadcrumbs from "../index";
 import infoOptions from "./infoOptions";
 import withThemeProvider from "./withThemeProvider";
@@ -13,18 +13,17 @@ const storybook = storiesOf("Breadcrumbs", module);
 
 storybook.add(
   "default",
-  withInfo(infoOptions)(() => {
-    const props = {
-      disabled: false
-    };
-    const { disabled, theme, ...otherProps } = getKnobs(props);
-
-    return withThemeProvider(
-      <Breadcrumbs {...otherProps}>
-        <TextLink link="#">Home</TextLink>
-        <TextLink link="#">Parent</TextLink>
-        <Typography>Current</Typography>
+  withInfo({
+    ...infoOptions,
+    propTablesExclude: [TextLink, Typography, KnobbedThemeProvider]
+  })(() =>
+    withThemeProvider(
+      <Breadcrumbs>
+        <TextLink link="#">Autodesk</TextLink>
+        <TextLink link="#">HIG</TextLink>
+        <TextLink link="#">Basics</TextLink>
+        <Typography>Colors</Typography>
       </Breadcrumbs>
-    );
-  })
+    )
+  )
 );
