@@ -58,6 +58,7 @@
     "@hig/typography": "^1.0.2",
     "faker": "^4.1.0",
     "prop-types": "^15.6.1",
+    "require": "^2.4.20",
     "wait-port": "^0.2.2"
   },
   "eslintConfig": {

@@ -6,8 +6,10 @@ addDecorator(TestDecorator);
 
 const req = require.context("../../../", true, /stories-test\.js$/);
 
+
 function loadStories() {
   req.keys().forEach(req);
+  console.log(req.keys());
 }
 
 configure(loadStories, module);

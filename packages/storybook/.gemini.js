@@ -11,7 +11,7 @@ const chromeCapabilities = {
 
 module.exports = {
   rootUrl: "http://www.example.com",
-  gridUrl: "http://ondemand.saucelabs.com/wd/hub",
+  gridUrl: "http://127.0.0.1:4444/wd/hub",
   screenshotsDir: "./gemini/screens",
   compositeImage: true,
   sessionsPerBrowser: 3,
@@ -19,10 +19,6 @@ module.exports = {
   retry: 3,
   system: {
     plugins: {
-      sauce: {
-        username: process.env.SAUCE_USERNAME,
-        accessKey: process.env.SAUCE_ACCESS_KEY
-      },
       "html-reporter/gemini": {
         path: "./gemini-report/"
       }
