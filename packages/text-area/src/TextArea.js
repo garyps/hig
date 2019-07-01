@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Input from "@hig/input";
+import { css } from "emotion"
+
+import { ThemeContext } from "@hig/theme-context";
 
 import customStylesheet from "./customStylesheet";
 
@@ -22,6 +25,10 @@ export default class TextArea extends Component {
      */
     onInput: PropTypes.func,
     /**
+     * Adds custom/overriding styles
+     */
+    stylesheet: PropTypes.func,
+    /**
      * The visual variant of the textarea
      */
     variant: PropTypes.oneOf(variantTypes)
@@ -32,17 +39,29 @@ export default class TextArea extends Component {
   };
 
   render() {
-    const { variant, ...otherProps } = this.props;
-
     return (
-      <div style={{ position: "relative" }}>
-        <Input
-          stylesheet={customStylesheet}
-          tagName="textarea"
-          variant={variant}
-          {...otherProps}
-        />
-      </div>
+      <ThemeContext.Consumer>
+        {({ resolvedRoles, metadata }) => {
+          const { variant, stylesheet, ...otherProps } = this.props;
+          const cssStyles = stylesheet && stylesheet(
+                                            this.props,
+                                            resolvedRoles,
+                                            metadata.colorSchemeId
+                                          )
+                                          
+          return (
+            <div style={{ position: "relative" }}>
+              <Input
+                className={cssStyles ? css(cssStyles) : ""}
+                stylesheet={customStylesheet}
+                tagName="textarea"
+                variant={variant}
+                {...otherProps}
+              />
+            </div>
+          );
+        }}
+      </ThemeContext.Consumer>
     );
   }
 }
